@@ -6,7 +6,11 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 
 function App() {
-  const [mode, setMode] = useState(false);
+  const [mode, setMode] = useState(
+    String(localStorage.getItem("mode")).toLowerCase() === "true"
+  );
+  localStorage.setItem("mode", mode);
+
   return (
     <div className={`App ${mode ? "dark-mode" : ""}`}>
       <Router>

@@ -7,9 +7,8 @@ import Users from "./Users";
 
 function Home() {
   const [show, setShow] = useState(true);
-  const url = "https://randomuser.me/api/?results=9";
-  const { data, error, isPending, searchData, deleteData, refreshData } =
-    useFetch(url);
+  const [url, setUrl] = useState("https://randomuser.me/api/?results=9");
+  const { data, error, isPending, searchData, deleteData ,refreshData} = useFetch(url);
 
   if (isPending) {
     return (
@@ -37,7 +36,11 @@ function Home() {
   return (
     <div className='container'>
       <div className='middle'>
-        <form className='form'>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          className='form'>
           <input
             onChange={(e) => searchData(e.target.value)}
             className='form__input'

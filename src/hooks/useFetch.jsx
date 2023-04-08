@@ -66,7 +66,7 @@ const useFetch = (url) => {
     }
   };
 
-  return { data, error, isPending, searchData, deleteData, refreshData };
+  return { data, error, isPending, searchData, deleteData ,refreshData};
 };
 
 export { useFetch };
